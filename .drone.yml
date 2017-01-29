@@ -1,4 +1,4 @@
-image: golang
+image: python
 script:
   - echo hello world
   
