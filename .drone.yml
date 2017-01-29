@@ -1,4 +1,14 @@
-image: python
-script:
-  - echo hello world
-  
+
+pipeline:
+  test:
+    image: python    
+    commands:
+      - pwd
+      - ls
+      - python uploadPic/uploadPic_test.py
+
+  publish:
+    image: python
+    commands:
+      - echo Running publish steps
+
