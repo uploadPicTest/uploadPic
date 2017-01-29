@@ -1,4 +1,4 @@
-image: ubuntu
+image: golang
 script:
   - echo hello world
   
