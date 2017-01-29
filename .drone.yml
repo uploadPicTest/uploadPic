@@ -1,13 +1,11 @@
-pipeline:
-  build:
-    image: python
-    commands:
-      - pwd
-      - ls
-      - python uploadPic/uploadPic_test.py
+image: python
 
-  publishTest:
-    image: python
-    commands:
-      - echo Running publish steps
+script:
+  - pwd
+  - ls
+  - python uploadPic/uploadPic_test.py
+
+publishTest:
+  commands:
+    - echo Running publish steps
 
