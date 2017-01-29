@@ -1,13 +1,13 @@
-image: python
-
 pipeline:
   test:
+    image: python
     commands:
       - pwd
       - ls
       - python uploadPic/uploadPic_test.py
 
-  publish:
+  publishTest:
+    image: python
     commands:
       - echo Running publish steps
 
