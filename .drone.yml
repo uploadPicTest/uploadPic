@@ -2,7 +2,7 @@ image: python
 
 script:
   - pwd
-  - ls
+  - pip install flask
   - python uploadPic/uploadPic_tests.py
 
 publishTest:
