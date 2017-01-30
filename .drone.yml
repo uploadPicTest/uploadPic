@@ -4,5 +4,5 @@ script:
   - pwd
   - pip install flask
   - python uploadPic/uploadPic_tests.py
-  - echo Running next step, success
+  - echo Succeeded, now running deployment
 
