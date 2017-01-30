@@ -5,6 +5,9 @@ import unittest
 import tempfile
 import uploadPic
 
+#Some extremely basic unit tests, to make sure we're getting the
+#absolute minimum behavior
+
 class MyTestCase(unittest.TestCase):
     def setUp(self):
         uploadPic.app.config['TESTING'] = True
@@ -37,6 +40,8 @@ class MyTestCase(unittest.TestCase):
 
         #Add: test that jpg file is available, and has the right contents
         #Add: test that form shows up?
+        #Add: collision tests - if two files of the same name are uploaded
+        #     simultaneously, what happens?
 
 if __name__ == '__main__':
     unittest.main()
