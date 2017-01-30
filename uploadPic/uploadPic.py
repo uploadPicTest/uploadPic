@@ -11,10 +11,8 @@ def valid_extension(filename):
     ext = filename.split('.')[-1]
     return ext in allowed_extensions
 
-UPLOAD_FOLDER = 'temp/'
-
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['UPLOAD_FOLDER'] = "temp/"
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
 
 @app.route('/')
@@ -42,7 +40,8 @@ def upload_file():
             return 'No file selected, please try again'
         if valid_extension(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            save_location = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
+            file.save(os.path.join(save_location, filename))
             return redirect(url_for('uploaded_file',
                                     filename=filename))
         else:
@@ -54,7 +53,8 @@ def upload_file():
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    save_location = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
+    return send_from_directory(save_location, filename)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
