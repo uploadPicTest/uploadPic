@@ -4,6 +4,7 @@ import os
 from flask import Flask, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 
+
 allowed_extensions = ['jpg', 'gif', 'png', 'jpeg']
 
 def valid_extension(filename):

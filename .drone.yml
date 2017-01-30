@@ -4,8 +4,5 @@ script:
   - pwd
   - pip install flask
   - python uploadPic/uploadPic_tests.py
-
-publishTest:
-  commands:
-    - echo Running publish steps
+  - echo Running next step, success
 

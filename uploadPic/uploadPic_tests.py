@@ -9,9 +9,8 @@ class MyTestCase(unittest.TestCase):
     def setUp(self):
         uploadPic.app.config['TESTING'] = True
         self.app = uploadPic.app.test_client()
+        print sys.path[0]
         os.chdir(sys.path[0])
-        #basedir = os.path.dirname(os.path.abspath(__file__))
-        #os.chdir(basedir)
 
 
     #Accessing "upload" with GET returns error message
