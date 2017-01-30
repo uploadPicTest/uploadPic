@@ -2,6 +2,8 @@
 
 A very simple Flask web app to show you the picture you upload to it.
 
+This is a fork of the main repo, so that everyone can log in to the drone
+
 ## Purpose
 
 This small app is basically a test of setting up a CI system using
