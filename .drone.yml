@@ -5,4 +5,6 @@ script:
   - pip install flask
   - python uploadPic/uploadPic_tests.py
   - echo Succeeded, now running deployment
-
+  - git remote add heroku git@https://git.heroku.com/whispering-meadow-18482.git
+  - git push heroku master
+  

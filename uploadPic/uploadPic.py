@@ -23,6 +23,7 @@ def main_page():
     <!doctype html>
     <title>Display a photo</title>
     <p>Submit a file to display, max size 5 MB:</p>
+    <p>I was pushed automatically to heroku from Drone!</p>
     <form method=POST enctype=multipart/form-data action="upload">
     <input type=file name=photo>
     <input type="submit" value="Upload">
