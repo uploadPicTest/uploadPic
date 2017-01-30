@@ -33,6 +33,7 @@ class MyTestCase(unittest.TestCase):
         data = dict(photo=(io.BytesIO(b'pdf test'), 'test.pdf'))
         rv = self.app.post('/upload', content_type='multipart/form-data',
                            data=data)
+        assert 1 == 2
         assert b'Please upload a valid file' in rv.data
 
         #Add: test that jpg file is available, and has the right contents
