@@ -10,6 +10,10 @@ DigitalOcean box, set to use Ubuntu.
 
 ## Setting up Drone
 
+This mostly follows [Drone's
+setup](https://www.digitalocean.com/community/tutorials/how-to-perform-continuous-integration-testing-with-drone-io-on-coreos-and-docker),
+with a few small tweaks and a lot of automation.
+
 First, the Ubuntu version doesn't have Docker, which we will need.
 Adding it is very straightforward, we simply have to add it through
 apt-get.  Once logged in to the DO instance, we'll grab the scripts
@@ -62,4 +66,31 @@ Drone is now up and running!
 Now go to the Drone page on a browser `https://138.197.10.170:8080/`, and log
 in to your github account.  You'll be asked to authorize and sync, go ahead and
 do that.  Then activate your fork of this repo.
+
+## Setting up Heroku
+
+We'll be following an automated and tweaked version of [Heroku's
+python
+guide](https://devcenter.heroku.com/articles/getting-started-with-python#introduction).
+Note that these tweaks are necessary, since the documentation is not
+completely compatible with Drone.
+
+We'll need the following info: your Heroku login and password, and the
+Drone's public key (on Drone, go to the uploadPic repository, then to
+settings, the key is "Public Key" toward the bottom).  Save this in a file
+on your local machine, we'll be adding it to Heroku with our script.
+
+With all that gathered, we need to run the following, locally (since I
+presume you don't want to do development on the drone instance):
+
+```
+bash uploadPic/ciServer/setupHeroku.sh <drone-public-key-file>
+```
+
+Verify this worked with `heroku ps`.  You should see info about your
+running instance.
+
+This will set up everything we need.  It will ask you to log in to your Heroku
+account at the beginning, then it will set up a git repo at Heroku that will
+trigger a deploy when we push to it.
 
