@@ -3,7 +3,7 @@ image: python
 script:
   - pwd
   - ls
-  - python uploadPic/uploadPic_test.py
+  - python uploadPic/uploadPic_tests.py
 
 publishTest:
   commands:
